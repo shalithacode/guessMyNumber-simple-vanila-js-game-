@@ -10,6 +10,7 @@ const checkBtn = document.querySelector('.check');
 const againBtn = document.querySelector('.again');
 
 const initialColor = document.body.style.backgroundColor;
+let max = 0;
 
 var x = Math.trunc(Math.random() * 20) + 1;
 var i = 20;
@@ -41,7 +42,10 @@ const checkNumber = function () {
         else if (guessNo === x) {
             message.textContent = "Correct Number!";
             hidden.textContent = x;
-            highscore.textContent = `🥇 Highscore: ${i}`;
+            if (max < i) {
+                max = i;
+                highscore.textContent = `🥇 Highscore: ${i}`;
+            }
             document.body.style.backgroundColor = "Green";
             checkBtn.disabled = true;
 
